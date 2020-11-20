@@ -42,6 +42,16 @@ function teamMember() {
             validate: confirmNumber
         }
     ])
+
+        .then(function (answers) {
+            let manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+            engagementTeam.push(manager)
+            chooseMemberNext()
+        })
+
+        .catch(function(err) {
+            console.log(err);
+        });
 }
 
 // After the user has input all employees desired, call the `render` function (required
