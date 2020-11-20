@@ -14,6 +14,30 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+const engagementTeam = [];
+const confirmName = async (name) => {
+    if (name === '') {
+        return 'Incorrect answer';
+     };
+     return true;
+};
+
+const confirmNumber = async (name) => {
+    if (name === '') {
+       return 'Incorrect answer';
+    };
+    return true;
+ };
+ 
+ function validateEmail(name) 
+{if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(name))
+  {
+    return (true)
+  }
+    return("You have entered an invalid email address!")
+}
+
+
 function teamMember() {
 
     inquirer.prompt([
@@ -52,6 +76,21 @@ function teamMember() {
         .catch(function(err) {
             console.log(err);
         });
+
+        async function chooseMemberNext() {
+            try {
+                let teamChoice = await inquirer.prompt([
+                    {
+                        type: 'list',
+                        name: 'team',
+                        message: 'Which type of team member would you like to add',
+                        choices: ['Engineer', 'Intern', 'I dont want to add anymore team members.']
+                    }
+                ]);
+
+
+            }
+        }
 }
 
 // After the user has input all employees desired, call the `render` function (required
