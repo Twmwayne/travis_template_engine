@@ -36,7 +36,7 @@ const confirmNumber = async (name) => {
   }
     return("You have entered an invalid email address!")
 }
-
+ 
 
 function teamMember() {
 
@@ -87,6 +87,36 @@ function teamMember() {
                         choices: ['Engineer', 'Intern', 'I dont want to add anymore team members.']
                     }
                 ]);
+
+        if (teamChoice.team === 'Engineer') {
+
+            inquirer.prompt([
+                {
+                    type: "input",
+                    message: "What is your engineer's name?",
+                    name: "name",
+                    validate: confirmName
+                },
+                {
+                    type: "input",
+                    message: "What is your engineer's id?",
+                    name: "id",
+                    validate: confirmNumber
+                },
+                {
+                    type: "input",
+                    message: "What is your engineer's email?",
+                    name: "email",
+                    validate: validateEmail
+                },
+                {
+                    type: "input",
+                    message: "What is your engineer's GitHub username?",
+                    name: "github",
+                    validate: confirmName
+                }
+            ])
+        }
 
 
             }
