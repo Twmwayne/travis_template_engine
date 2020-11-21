@@ -169,6 +169,11 @@ function teamMember() {
         }
     }
 
+    teamMember();
+
+    function generateFile() {
+        fs.writeFileSync(outputPath, render(engagementTeam),"utf-8")
+    }
 }
 
 
